@@ -5,13 +5,12 @@ import rootReducer from '../Reducers';
 
 let store = null;
 
-export default function configureStore(initialState, routerMiddleware) {
+export default function configureStore() {
     store = createStore(
         rootReducer,
-        initialState + window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+        {},
         applyMiddleware(
-            thunk,
-            routerMiddleware
+            thunk
         )
     );
     return store;
